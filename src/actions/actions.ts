@@ -24,13 +24,16 @@ import {
     ADD_BUG_RESTORE,
     REMOVE_BUG_RESTORE,
     EDIT_BUG_RESTORE,
-    CHANGE_BUG_STATUS_RESTORE
+    CHANGE_BUG_STATUS_RESTORE,
+    CHANGE_PAGE,
+    CHANGE_PAGES,
+    SEARCH,
+    SORT
 } from '../types'
 
 
-export const getBugsRequest = (payload:Data['extra']) => ({
+export const getBugsRequest = () => ({
     type: GET_BUGS_REQUEST,
-    payload
 })
 
 export const getBugsSuccess = (payload: IState['bugs']) => ({
@@ -92,7 +95,7 @@ export const removeBugRestore = () => ({
     type: REMOVE_BUG_RESTORE
 })
 
-export const editBugRequest = (payload: { id: string ,description:string }) => ({
+export const editBugRequest = (payload: { id: string, description: string }) => ({
     type: EDIT_BUG_REQUEST,
     payload
 })
@@ -102,28 +105,28 @@ export const editBugSuccess = () => ({
 })
 
 export const editBugFail = () => ({
-    type: EDIT_BUG_SUCCESS,
+    type: EDIT_BUG_FAIL,
 })
 
-export const editBugRestore=()=>({
-    type:EDIT_BUG_RESTORE
+export const editBugRestore = () => ({
+    type: EDIT_BUG_RESTORE
 })
 
-export const changeStatusRequest=(payload:Data)=>({
-    type:CHANGE_BUG_STATUS_REQUEST,
+export const changeStatusRequest = (payload: Data) => ({
+    type: CHANGE_BUG_STATUS_REQUEST,
     payload
 })
 
-export const changeStatusSuccess=()=>({
-    type:CHANGE_BUG_STATUS_SUCCESS,
+export const changeStatusSuccess = () => ({
+    type: CHANGE_BUG_STATUS_SUCCESS,
 })
 
-export const changeStatusFail=()=>({
-    type:CHANGE_BUG_STATUS_FAIL,
+export const changeStatusFail = () => ({
+    type: CHANGE_BUG_STATUS_FAIL,
 })
 
-export const changeStatusRestore=()=>({
-    type:CHANGE_BUG_STATUS_RESTORE,
+export const changeStatusRestore = () => ({
+    type: CHANGE_BUG_STATUS_RESTORE,
 })
 
 export const openModalAdd = () => ({
@@ -137,4 +140,26 @@ export const openModalEdit = () => ({
 export const modalClose = () => ({
     type: MODAL_CLOSE
 })
+
+export const changePage = (payload: number) => ({
+    type: CHANGE_PAGE,
+    payload
+})
+
+export const changePages = (payload: number) => ({
+    type: CHANGE_PAGES,
+    payload
+})
+
+export const search = (payload: string) => ({
+    type: SEARCH,
+    payload
+})
+
+export const sort = (payload: string) => ({
+    type: SORT,
+    payload
+})
+
+
 

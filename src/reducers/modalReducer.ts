@@ -27,7 +27,7 @@ export const modalReducer = (state: ModalState = { show: false, close: false, mo
         case MODAL_CLOSE:
             return {
                 ...state,
-                show:false,
+                show: false,
                 close: true
             }
 

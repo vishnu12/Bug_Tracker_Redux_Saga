@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga'
 import {getBugsReducer,addBugReducer, getBugByIdReducer, removeBugReducer, editBugReducer, changeBugStatusReducer} from './reducers/bugReducer'
 import rootSaga from './sagas';
 import { modalReducer } from './reducers/modalReducer';
+import { customReducer } from './reducers/customReducer';
 
 
 
@@ -19,7 +20,8 @@ const rootReducer=combineReducers({
     getBug:getBugByIdReducer,
     removeBug:removeBugReducer,
     editBug:editBugReducer,
-    changeBugStatus:changeBugStatusReducer
+    changeBugStatus:changeBugStatusReducer,
+    custom:customReducer
 })
 
 export type rootState=ReturnType<typeof rootReducer>

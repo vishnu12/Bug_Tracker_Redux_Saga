@@ -138,7 +138,7 @@ export const removeBugReducer = (state: IState = { bugs: [], bug: {}, success: f
                 ...state,
                 error: true
             }
-            
+
         case REMOVE_BUG_RESTORE:
             return {
                 ...state,
@@ -173,7 +173,7 @@ export const editBugReducer = (state: IState = { bugs: [], bug: {}, success: fal
                 ...state,
                 error: true
             }
-            
+
         case EDIT_BUG_RESTORE:
             return {
                 ...state,
@@ -208,7 +208,7 @@ export const changeBugStatusReducer = (state: IState = { bugs: [], bug: {}, succ
                 ...state,
                 error: true
             }
-            
+
         case CHANGE_BUG_STATUS_RESTORE:
             return {
                 ...state,

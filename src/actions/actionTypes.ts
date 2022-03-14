@@ -24,7 +24,11 @@ import {
     ADD_BUG_RESTORE,
     REMOVE_BUG_RESTORE,
     EDIT_BUG_RESTORE,
-    CHANGE_BUG_STATUS_RESTORE
+    CHANGE_BUG_STATUS_RESTORE,
+    CHANGE_PAGE,
+    CHANGE_PAGES,
+    SEARCH,
+    SORT
 } from '../types'
 
 
@@ -38,8 +42,7 @@ export interface Custom {
 export interface Data {
     id?: string,
     description?: string,
-    resolved?: boolean,
-    extra?: Custom
+    resolved?: boolean
 }
 
 export interface IState {
@@ -59,7 +62,7 @@ export interface ModalState {
 
 
 export type GetBugsActions =
-    | { type: typeof GET_BUGS_REQUEST, payload: Data['extra'] }
+    | { type: typeof GET_BUGS_REQUEST, payload: Data }
     | { type: typeof GET_BUGS_SUCCESS, payload: IState['bugs'] }
     | { type: typeof GET_BUGS_FAIL }
 
@@ -102,3 +105,10 @@ export type ModalActions =
     | { type: typeof MODAL_CLOSE }
     | { type: typeof MODAL_OPEN_ADD }
     | { type: typeof MODAL_OPEN_EDIT }
+
+
+export type CustomAction =
+    | { type: typeof CHANGE_PAGE, payload: number }
+    | { type: typeof CHANGE_PAGES, payload: number }
+    | { type: typeof SEARCH, payload: string }
+    | { type: typeof SORT, payload: string }

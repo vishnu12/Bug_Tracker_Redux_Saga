@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Button, Form, Modal } from 'react-bootstrap';
 import { Data } from '../../actions/actionTypes';
 import { useSelector } from '../../store';
@@ -11,15 +11,16 @@ import { addBugRequest, addBugRestore, editBugRequest, editBugRestore, modalClos
 export type Istate = Omit<Data, "resolved">
 
 
-export const ModalComp: React.FC= () => {
+export const ModalComp: React.FC = () => {
 
-    const {show,mode}=useSelector(state=>state.modal)
-    const {bug}=useSelector(state=>state.getBug)
-   
-    const dispatch=useDispatch()
+    const { show, mode } = useSelector(state => state.modal)
+    const { bug } = useSelector(state => state.getBug)
+
+
+    const dispatch = useDispatch()
 
     const [values, setValues] = useState<Istate>({ id: '', description: '' })
-   
+
     useEffect(() => {
         setValues({ id: bug.id, description: bug.description })
     }, [bug])
@@ -35,7 +36,7 @@ export const ModalComp: React.FC= () => {
 
     function handleClick(): void {
         if (mode === 'Add Bug') {
-            dispatch(addBugRequest({id:values.id,description:values.description,resolved:false}))
+            dispatch(addBugRequest({ id: values.id, description: values.description, resolved: false }))
             setValues({
                 ...values,
                 id: '',
@@ -44,9 +45,9 @@ export const ModalComp: React.FC= () => {
 
             dispatch(modalClose())
             dispatch(addBugRestore())
-           
+
         } else if (mode === 'Edit Bug') {
-           dispatch(editBugRequest({id:values.id!,description:values.description!}))
+            dispatch(editBugRequest({ id: values.id!, description: values.description! }))
             setValues({
                 ...values,
                 id: '',
@@ -61,7 +62,7 @@ export const ModalComp: React.FC= () => {
     return (
         <Modal
             show={show}
-            onHide={()=>dispatch(modalClose())}
+            onHide={() => dispatch(modalClose())}
             size="sm"
             aria-labelledby="contained-modal-title-vcenter"
             centered

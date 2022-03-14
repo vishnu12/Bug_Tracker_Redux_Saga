@@ -13,7 +13,7 @@
     {
       "id": "bug56hjfjghf",
       "description": "Creator78",
-      "resolved": false
+      "resolved": true
     },
     {
       "id": "bug34567fgfgf",
@@ -37,8 +37,18 @@
     },
     {
       "id": "bug76868",
-      "description": "typo in page34",
-      "resolved": true
+      "description": "typo in page344",
+      "resolved": false
+    },
+    {
+      "id": "bug223",
+      "description": "weeewefererew",
+      "resolved": false
+    },
+    {
+      "id": "bug37645",
+      "description": "Arial display error",
+      "resolved": false
     }
   ]
 }
